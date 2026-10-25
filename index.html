@@ -38,12 +38,19 @@
         </span>
       </a>
 
-      <nav class="nav-links" aria-label="Navegación principal">
+      <button class="menu-toggle" type="button" aria-label="Abrir menú" aria-controls="main-navigation" aria-expanded="false">
+        <svg class="menu-icon" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+          <path d="M4 7h16M4 12h16M4 17h16"/>
+        </svg>
+      </button>
+
+      <nav id="main-navigation" class="nav-links" aria-label="Navegación principal">
         <a href="#servicios">Servicios</a>
         <a href="#sistemas">Soluciones</a>
         <a href="#proyectos">Proyectos</a>
         <a href="#sobre-mi">Sobre mí</a>
         <a href="#proceso">Proceso</a>
+        <a class="nav-contact-link" href="#contacto">Hablemos</a>
       </nav>
 
       <a class="btn btn-primary" href="#contacto">Hablemos</a>
@@ -64,7 +71,7 @@
             <span class="text-accent">ideas y negocios reales.</span>
           </h1>
           <p class="body-lg">
-            Soy Guillermo, ingeniero informático. Ayudo a profesionales,
+            Ayudo a profesionales,
             emprendedores y pequeñas empresas a dar vida a sus ideas digitales.
             Diseño y desarrollo sitios web, aplicaciones y automatizaciones
             adaptadas a cada necesidad.
@@ -775,6 +782,43 @@
           button.textContent = originalText;
         }
       });
+    })();
+  </script>
+  <script>
+    (() => {
+      const toggle = document.querySelector(".menu-toggle");
+      const menu = document.getElementById("main-navigation");
+      if (!toggle || !menu) return;
+
+      function closeMenu() {
+        toggle.setAttribute("aria-expanded", "false");
+        toggle.setAttribute("aria-label", "Abrir menú");
+        menu.classList.remove("is-open");
+      }
+
+      toggle.addEventListener("click", () => {
+        const opening = toggle.getAttribute("aria-expanded") !== "true";
+        toggle.setAttribute("aria-expanded", String(opening));
+        toggle.setAttribute("aria-label", opening ? "Cerrar menú" : "Abrir menú");
+        menu.classList.toggle("is-open", opening);
+      });
+
+      menu.addEventListener("click", (event) => {
+        if (event.target.closest("a")) closeMenu();
+      });
+
+      document.addEventListener("keydown", (event) => {
+        if (event.key === "Escape" && toggle.getAttribute("aria-expanded") === "true") {
+          closeMenu();
+          toggle.focus();
+        }
+      });
+
+      document.addEventListener("click", (event) => {
+        if (!event.target.closest(".site-header")) closeMenu();
+      });
+
+      window.matchMedia("(min-width: 768px)").addEventListener("change", closeMenu);
     })();
   </script>
 </body>
