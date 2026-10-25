@@ -1,0 +1,54 @@
+
+# ==========================================
+# Guillermo González | Landing profesional
+# ==========================================
+
+# Credenciales y variables privadas
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.p12
+*.pfx
+
+# Dependencias
+node_modules/
+
+# Archivos temporales
+tmp/
+temp/
+*.tmp
+*.log
+npm-debug.log*
+
+# Sistema operativo
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editores
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Netlify local
+.netlify/
+
+# Reportes y cobertura
+coverage/
+.nyc_output/
+
+# Configuraciones locales
+*.local
+
+# Archivos de respaldo
+*.bak
+*.backup
+*~
+
+# Archivos comprimidos
+*.zip
+*.rar
+*.7z

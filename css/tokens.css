@@ -1,0 +1,230 @@
+
+/* ==========================================================
+   GUILLERMO GONZÁLEZ — DESIGN SYSTEM
+   Atelier | Calm Authority
+   Archivo: css/tokens.css
+   ========================================================== */
+
+:root {
+  /* 1. PALETA MINERAL Y ORGÁNICA */
+
+  --color-lichen: #C6CCA5;
+  --color-sage: #8AB8A8;
+  --color-washed-teal: #6B9997;
+  --color-slate-teal: #54787D;
+  --color-espresso: #615145;
+
+  /* 2. SUPERFICIES */
+
+  --bg-base: #F8F9F5;
+  --bg-surface: #FFFFFF;
+
+  --bg-subtle: rgba(198, 204, 165, 0.22);
+  --bg-active-tag: rgba(138, 184, 168, 0.25);
+
+  /* Superficies de contraste.
+     Se conservan por compatibilidad, pero no se utilizarán
+     como fondo principal del formulario de contacto. */
+
+  --bg-dark: #615145;
+  --bg-dark-elevated: #524338;
+
+  /* Nueva superficie para contacto */
+
+  --bg-contact: #F8F9F5;
+  --bg-contact-card: #FFFFFF;
+
+  /* 3. JERARQUÍA DE TEXTO */
+
+  --text-main: #615145;
+  --text-heading-accent: #54787D;
+  --text-muted: #665C53;
+
+  --text-light: #F8F9F5;
+  --text-light-muted: rgba(248, 249, 245, 0.85);
+
+  /* 4. ACCIONES E INTERACCIONES */
+
+  --action-primary: #54787D;
+  --action-primary-hover: #405F64;
+  --action-primary-text: #FFFFFF;
+
+  --action-secondary: #FFFFFF;
+  --action-secondary-hover: #EDF3EF;
+
+  --link-color: #405F64;
+  --link-hover: #304B50;
+
+  /* 5. BORDES Y DIVISORES */
+
+  --border-subtle: rgba(84, 120, 125, 0.16);
+  --border-card: rgba(84, 120, 125, 0.12);
+  --border-node: rgba(107, 153, 151, 0.25);
+  --border-input: #849B9D;
+  --border-divider: rgba(97, 81, 69, 0.14);
+
+  /* Foco accesible */
+
+  --focus-color: #304B50;
+  --focus-ring: rgba(84, 120, 125, 0.35);
+
+  /* 6. ESTADOS DE FORMULARIO */
+
+  --state-success: #276749;
+  --state-success-bg: #E9F5ED;
+
+  --state-error: #A12635;
+  --state-error-bg: #FCECEF;
+
+  --state-warning: #825300;
+  --state-warning-bg: #FFF4D6;
+
+  /* 7. TIPOGRAFÍA */
+
+  --font-display:
+    "Space Grotesk",
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    sans-serif;
+
+  --font-body:
+    "Plus Jakarta Sans",
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    sans-serif;
+
+  /* Display */
+
+  --fs-display-lg: 2.25rem;
+  --lh-display-lg: 2.75rem;
+  --ls-display-lg: -0.02em;
+
+  /* Títulos */
+
+  --fs-headline-lg: 1.75rem;
+  --lh-headline-lg: 2.25rem;
+  --ls-headline-lg: -0.02em;
+
+  --fs-headline-md: 1.35rem;
+  --lh-headline-md: 1.85rem;
+  --ls-headline-md: -0.01em;
+
+  --fs-headline-sm: 1.15rem;
+  --lh-headline-sm: 1.65rem;
+
+  /* Párrafos */
+
+  --fs-body-lg: 1.0625rem;
+  --lh-body-lg: 1.65rem;
+
+  --fs-body-md: 0.9375rem;
+  --lh-body-md: 1.5rem;
+
+  --fs-body-sm: 0.8125rem;
+  --lh-body-sm: 1.25rem;
+
+  /* Etiquetas */
+
+  --fs-label-md: 0.8125rem;
+  --ls-label-md: 0.04em;
+
+  --fs-label-sm: 0.6875rem;
+  --ls-label-sm: 0.06em;
+
+  /* 8. ESPACIADO */
+
+  --space-xs: 0.25rem;
+  --space-sm: 0.5rem;
+  --space-md: 1rem;
+  --space-lg: 1.5rem;
+  --space-xl: 2.5rem;
+  --space-2xl: 4rem;
+  --space-3xl: 6rem;
+
+  /* 9. CONTENEDORES Y GRILLA */
+
+  --page-margin: 1.25rem;
+  --grid-gutter: 1rem;
+
+  --container-max: 1360px;
+  --container-reading: 800px;
+
+  /* 10. RADIOS */
+
+  --radius-sm: 0.25rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 1rem;
+  --radius-xl: 1.5rem;
+  --radius-full: 9999px;
+
+  /* 11. SOMBRAS */
+
+  --shadow-level-1:
+    0 1px 2px rgba(84, 120, 125, 0.05);
+
+  --shadow-level-2:
+    0 4px 16px -2px rgba(97, 81, 69, 0.06),
+    0 1px 2px rgba(84, 120, 125, 0.08);
+
+  --shadow-level-3:
+    0 20px 38px -10px rgba(97, 81, 69, 0.18);
+
+  /* 12. TRANSICIONES */
+
+  --transition-fast: 150ms ease;
+  --transition-normal: 250ms ease;
+}
+
+/* ==========================================================
+   TABLET — desde 768px
+   ========================================================== */
+
+@media (min-width: 768px) {
+  :root {
+    --page-margin: 2rem;
+    --grid-gutter: 1.25rem;
+
+    --fs-display-lg: 2.85rem;
+    --lh-display-lg: 3.35rem;
+
+    --fs-headline-lg: 2rem;
+    --lh-headline-lg: 2.5rem;
+
+    --fs-headline-md: 1.5rem;
+    --lh-headline-md: 2rem;
+
+    --fs-headline-sm: 1.25rem;
+    --lh-headline-sm: 1.75rem;
+
+    --fs-body-lg: 1.125rem;
+    --lh-body-lg: 1.75rem;
+  }
+}
+
+/* ==========================================================
+   DESKTOP — desde 1200px
+   ========================================================== */
+
+@media (min-width: 1200px) {
+  :root {
+    --page-margin: 3rem;
+    --grid-gutter: 1.5rem;
+
+    --fs-display-lg: 3.5rem;
+    --lh-display-lg: 4rem;
+    --ls-display-lg: -0.03em;
+  }
+}
+
+/* ==========================================================
+   ACCESIBILIDAD — Movimiento reducido
+   ========================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --transition-fast: 0ms;
+    --transition-normal: 0ms;
+  }
+}

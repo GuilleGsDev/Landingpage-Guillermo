@@ -1,0 +1,673 @@
+
+/* ==========================================================
+   GUILLERMO GONZÁLEZ | COMPONENTS
+   Atelier — Calm Authority
+
+   Componentes reutilizables del sitio.
+   Mobile-first, accesibles y sin dependencias externas.
+
+   Orden de carga:
+   1. tokens.css
+   2. base.css
+   3. components.css
+   4. sections.css
+   ========================================================== */
+
+
+/* ==========================================================
+   1. BOTONES
+   ========================================================== */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+
+  min-height: 44px;
+  max-width: 100%;
+  padding: 0.75rem 1.5rem;
+
+  border: 1.5px solid transparent;
+  border-radius: var(--radius-md);
+
+  font-family: var(--font-body);
+  font-size: var(--fs-body-md);
+  font-weight: 600;
+  line-height: 1.4;
+  text-align: center;
+  text-decoration: none;
+
+  cursor: pointer;
+
+  transition:
+    background-color var(--transition-fast),
+    border-color var(--transition-fast),
+    color var(--transition-fast),
+    box-shadow var(--transition-fast);
+}
+
+.btn:hover {
+  text-decoration: none;
+}
+
+.btn:focus-visible {
+  outline: 3px solid var(--focus-color);
+  outline-offset: 3px;
+}
+
+.btn:disabled,
+.btn[aria-disabled="true"] {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+/* Botón principal */
+
+.btn-primary {
+  background: var(--action-primary);
+  border-color: var(--action-primary);
+  color: var(--action-primary-text);
+}
+
+.btn-primary:hover:not(:disabled) {
+  background: var(--action-primary-hover);
+  border-color: var(--action-primary-hover);
+  color: #FFFFFF;
+}
+
+/* Botón secundario */
+
+.btn-secondary {
+  background: transparent;
+  border-color: var(--action-primary);
+  color: var(--link-color);
+}
+
+.btn-secondary:hover:not(:disabled) {
+  background: var(--action-secondary-hover);
+  border-color: var(--action-primary-hover);
+  color: var(--link-hover);
+}
+
+/* Botón oscuro */
+
+.btn-dark {
+  background: var(--bg-dark);
+  border-color: var(--bg-dark);
+  color: var(--text-light);
+}
+
+.btn-dark:hover:not(:disabled) {
+  background: var(--bg-dark-elevated);
+  border-color: var(--bg-dark-elevated);
+  color: var(--text-light);
+}
+
+/* Botón de ancho completo */
+
+.btn-block {
+  width: 100%;
+}
+
+/* Botones con iconos SVG inline */
+
+.icon-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.65rem;
+}
+
+.icon-button svg {
+  display: block;
+  width: 19px;
+  height: 19px;
+  flex: 0 0 19px;
+}
+
+
+/* ==========================================================
+   2. BADGES Y ETIQUETAS
+   ========================================================== */
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.25rem;
+
+  max-width: 100%;
+  padding: 0.35rem 0.75rem;
+
+  border: 1px solid transparent;
+  border-radius: var(--radius-full);
+
+  font-family: var(--font-display);
+  font-size: var(--fs-label-sm);
+  font-weight: 600;
+  line-height: 1.4;
+  letter-spacing: var(--ls-label-sm);
+  text-align: center;
+  text-transform: uppercase;
+  overflow-wrap: anywhere;
+}
+
+.badge-active {
+  background: var(--bg-active-tag);
+  border-color: var(--border-node);
+  color: var(--link-hover);
+}
+
+.badge-lichen {
+  background: var(--color-lichen);
+  color: var(--text-main);
+}
+
+.badge-neutral {
+  background: var(--bg-subtle);
+  border-color: var(--border-subtle);
+  color: var(--text-main);
+}
+
+
+/* ==========================================================
+   3. TARJETAS GENERALES
+   ========================================================== */
+
+.card {
+  min-width: 0;
+  padding: var(--space-lg);
+
+  background: var(--bg-surface);
+  border: 1px solid var(--border-card);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-level-1);
+
+  transition:
+    border-color var(--transition-normal),
+    box-shadow var(--transition-normal);
+}
+
+.card:hover {
+  border-color: var(--border-subtle);
+  box-shadow: var(--shadow-level-2);
+}
+
+.card-static:hover {
+  box-shadow: var(--shadow-level-1);
+}
+
+.card-soft {
+  background: var(--bg-subtle);
+  border-color: var(--border-node);
+}
+
+
+/* ==========================================================
+   4. TARJETAS DE NODO
+   Utilizadas en el hero de presentación.
+   ========================================================== */
+
+.node-card {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  overflow: hidden;
+
+  background: var(--bg-surface);
+  border: 1px solid var(--border-node);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-level-1);
+}
+
+.node-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: var(--space-sm);
+
+  padding: var(--space-md) var(--space-lg);
+
+  background: var(--bg-subtle);
+  border-bottom: 1px solid var(--border-node);
+}
+
+.node-card-body {
+  flex: 1;
+  min-width: 0;
+  padding: var(--space-lg);
+}
+
+.node-card-footer {
+  padding: var(--space-md) var(--space-lg);
+
+  background: var(--bg-base);
+  border-top: 1px solid var(--border-divider);
+}
+
+
+/* ==========================================================
+   5. GRUPOS DE ACCIONES Y ELEMENTOS COMPARTIDOS
+   ========================================================== */
+
+.hero-actions,
+.profile-actions,
+.contact-actions {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.hero-actions {
+  margin-top: 1.75rem;
+}
+
+.profile-actions,
+.contact-actions {
+  margin-top: 1.5rem;
+}
+
+.section-intro {
+  margin-bottom: 2rem;
+}
+
+.section-intro h2 {
+  margin-block: 0.5rem 0.75rem;
+}
+
+.section-intro p {
+  max-width: 730px;
+}
+
+.card-title {
+  margin-block: 1rem 0.75rem;
+}
+
+.card-detail {
+  margin-top: 0.75rem;
+}
+
+.card-action {
+  margin-top: 1.5rem;
+}
+
+.hero-title {
+  margin-block: 1.25rem;
+}
+
+.hero-mockup-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-bottom: 1.25rem;
+}
+
+.hero-node + .hero-node {
+  margin-top: 0.75rem;
+}
+
+.hero-node h2 {
+  margin-block: 0.4rem;
+}
+
+.hero-mockup-note {
+  margin-top: 1rem;
+}
+
+.profile-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 1.5rem;
+}
+
+.profile-paragraph + .profile-paragraph {
+  margin-top: 1rem;
+}
+
+.process-list {
+  padding: 0;
+  list-style: none;
+}
+
+.contact-direct {
+  margin-top: 2rem;
+}
+
+.footer-inner,
+.footer-links {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.footer-inner {
+  justify-content: space-between;
+}
+
+
+/* ==========================================================
+   6. VISTAS DE SOLUCIONES
+   Imágenes WebP de gestión, automatización y ecommerce.
+   ========================================================== */
+
+/* Contenedor general de la tarjeta */
+
+.mockup-card {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  height: 100%;
+  min-width: 0;
+}
+
+/* Encabezado de cada solución */
+
+.solution-content {
+  min-width: 0;
+}
+
+.solution-content h3 {
+  overflow-wrap: break-word;
+}
+
+/* Marco de la imagen */
+
+.solution-preview {
+  display: block;
+  width: 100%;
+  min-width: 0;
+  margin: 0;
+  overflow: hidden;
+
+  background: var(--bg-subtle);
+  border: 1px solid var(--border-node);
+  border-radius: var(--radius-md);
+}
+
+/* Enlace que permite ampliar el mockup */
+
+.solution-preview-link {
+  display: block;
+  width: 100%;
+  color: inherit;
+  cursor: zoom-in;
+  text-decoration: none;
+}
+
+.solution-preview-link:focus-visible {
+  outline: 3px solid var(--focus-color);
+  outline-offset: -3px;
+}
+
+/* Imagen completa y proporcional */
+
+.solution-preview-image {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  object-fit: contain;
+
+  background: var(--bg-surface);
+
+  transition: transform var(--transition-normal);
+}
+
+/* Efecto sutil en dispositivos con mouse */
+
+@media (hover: hover) {
+  .solution-preview-link:hover .solution-preview-image {
+    transform: scale(1.025);
+  }
+}
+
+/* Texto debajo de la imagen */
+
+.solution-caption {
+  margin-top: auto;
+  padding-top: 0.25rem;
+
+  color: var(--text-muted);
+  font-size: var(--fs-body-sm);
+  line-height: 1.6;
+}
+
+
+/* ==========================================================
+   7. PORTAFOLIO
+   ========================================================== */
+
+.project-summary {
+  max-width: 65ch;
+}
+
+.project-tech {
+  margin-top: 0.85rem;
+  color: var(--text-muted);
+  font-size: var(--fs-body-sm);
+  line-height: 1.5;
+}
+
+
+/* ==========================================================
+   8. FORMULARIOS
+   ========================================================== */
+
+.form-group {
+  min-width: 0;
+  margin-bottom: var(--space-lg);
+}
+
+.form-label {
+  display: block;
+  margin-bottom: var(--space-sm);
+
+  color: var(--text-main);
+  font-family: var(--font-display);
+  font-size: var(--fs-label-md);
+  font-weight: 600;
+  line-height: 1.4;
+  letter-spacing: var(--ls-label-md);
+  text-transform: uppercase;
+}
+
+/* Campos */
+
+.form-input,
+.form-select,
+.form-textarea {
+  display: block;
+  width: 100%;
+  min-height: 46px;
+  padding: 0.75rem 1rem;
+
+  background: var(--bg-surface);
+  border: 1px solid var(--border-input);
+  border-radius: var(--radius-md);
+  color: var(--text-main);
+
+  font-family: var(--font-body);
+  font-size: 1rem;
+  line-height: 1.5;
+
+  transition:
+    border-color var(--transition-fast),
+    box-shadow var(--transition-fast);
+}
+
+.form-input::placeholder,
+.form-textarea::placeholder {
+  color: var(--text-muted);
+  opacity: 0.9;
+}
+
+.form-input:hover:not(:disabled),
+.form-select:hover:not(:disabled),
+.form-textarea:hover:not(:disabled) {
+  border-color: var(--action-primary);
+}
+
+.form-input:focus-visible,
+.form-select:focus-visible,
+.form-textarea:focus-visible {
+  outline: 2px solid var(--focus-color);
+  outline-offset: 2px;
+  border-color: var(--action-primary);
+  box-shadow: 0 0 0 3px var(--focus-ring);
+}
+
+.form-textarea {
+  min-height: 140px;
+  resize: vertical;
+}
+
+.form-select {
+  cursor: pointer;
+}
+
+/* Estados deshabilitados */
+
+.form-input:disabled,
+.form-select:disabled,
+.form-textarea:disabled {
+  background: var(--bg-base);
+  opacity: 0.65;
+  cursor: not-allowed;
+}
+
+/* Validación */
+
+.form-input[aria-invalid="true"],
+.form-select[aria-invalid="true"],
+.form-textarea[aria-invalid="true"] {
+  border-color: var(--state-error);
+}
+
+.form-error {
+  margin-top: var(--space-xs);
+  color: var(--state-error);
+  font-size: var(--fs-body-sm);
+}
+
+/* Textos auxiliares */
+
+.form-help,
+.form-privacy {
+  color: var(--text-muted);
+  font-size: var(--fs-body-sm);
+  line-height: 1.6;
+}
+
+.form-help {
+  margin-top: var(--space-xs);
+}
+
+.form-privacy {
+  margin-top: var(--space-md);
+}
+
+.form-privacy a {
+  color: var(--link-color);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.form-privacy a:hover {
+  color: var(--link-hover);
+}
+
+/* Mensajes del futuro backend */
+
+.form-status {
+  padding: var(--space-md);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+
+  font-size: var(--fs-body-sm);
+  line-height: 1.6;
+}
+
+.form-status[hidden] {
+  display: none;
+}
+
+.form-status--success {
+  background: var(--state-success-bg);
+  border-color: var(--state-success);
+  color: var(--state-success);
+}
+
+.form-status--error {
+  background: var(--state-error-bg);
+  border-color: var(--state-error);
+  color: var(--state-error);
+}
+
+/* Estructura del formulario de contacto */
+
+.contact-form-title {
+  margin-bottom: 1.5rem;
+}
+
+.contact-submit {
+  margin-top: 1.5rem;
+}
+
+
+/* ==========================================================
+   9. RESPONSIVE
+   ========================================================== */
+
+/* En móviles pequeños, botones principales en columna. */
+
+@media (max-width: 480px) {
+  .hero-actions .btn,
+  .contact-actions .btn {
+    width: 100%;
+  }
+}
+
+/* Evitar desbordamiento de etiquetas y títulos muy largos. */
+
+@media (max-width: 359px) {
+  .badge {
+    font-size: 0.65rem;
+  }
+
+  .hero-actions,
+  .profile-actions,
+  .contact-actions {
+    align-items: stretch;
+  }
+
+  .profile-actions .btn {
+    width: 100%;
+  }
+}
+
+
+/* ==========================================================
+   10. ACCESIBILIDAD
+   ========================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  .btn,
+  .card,
+  .form-input,
+  .form-select,
+  .form-textarea,
+  .solution-preview-image {
+    transition: none;
+  }
+
+  .solution-preview-link:hover .solution-preview-image {
+    transform: none;
+  }
+}

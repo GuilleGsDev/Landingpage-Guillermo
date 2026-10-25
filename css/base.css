@@ -1,0 +1,460 @@
+
+/* ==========================================================
+   GUILLERMO GONZÁLEZ — BASE
+   Atelier | Calm Authority
+   Reset, tipografía, contenedores y grilla responsive
+   ========================================================== */
+
+
+/* 1. RESET Y CONFIGURACIÓN GLOBAL
+   ========================================================== */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+  scroll-padding-top: 5rem;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+
+  font-family: var(--font-body);
+  font-size: var(--fs-body-md);
+  line-height: var(--lh-body-md);
+
+  color: var(--text-main);
+  background-color: var(--bg-base);
+
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+::selection {
+  background-color: var(--color-lichen);
+  color: var(--text-main);
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+img,
+video {
+  height: auto;
+}
+
+img {
+  font-style: italic;
+}
+
+svg {
+  flex-shrink: 0;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+button,
+input,
+select,
+textarea {
+  color: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+button:disabled {
+  cursor: not-allowed;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  text-underline-offset: 0.2em;
+}
+
+a,
+button {
+  -webkit-tap-highlight-color: transparent;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+ul,
+ol,
+figure,
+blockquote {
+  margin: 0;
+}
+
+ul,
+ol {
+  padding: 0;
+}
+
+/* Mantener listas semánticas visibles por defecto.
+   Las listas de navegación se estilizan por componente. */
+
+ul,
+ol {
+  padding-inline-start: 1.5rem;
+}
+
+[hidden] {
+  display: none !important;
+}
+
+
+/* 2. ACCESIBILIDAD GLOBAL
+   ========================================================== */
+
+/* Foco visible para navegación mediante teclado */
+
+:where(
+  a,
+  button,
+  input,
+  select,
+  textarea,
+  summary,
+  [tabindex]
+):focus-visible {
+  outline: 3px solid var(--focus-color);
+  outline-offset: 3px;
+}
+
+/* No eliminar el foco cuando el navegador lo necesite */
+
+:where(
+  a,
+  button,
+  input,
+  select,
+  textarea,
+  summary,
+  [tabindex]
+):focus:not(:focus-visible) {
+  outline: none;
+}
+
+/* Evitar que enlaces y textos largos rompan el diseño */
+
+p,
+li,
+a,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
+
+:target {
+  scroll-margin-top: 5rem;
+}
+
+
+/* 3. TIPOGRAFÍA
+   ========================================================== */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.font-display {
+  font-family: var(--font-display);
+  color: var(--text-main);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  text-wrap: balance;
+}
+
+p {
+  text-wrap: pretty;
+}
+
+/* Display principal */
+
+.display-lg {
+  font-family: var(--font-display);
+  font-size: var(--fs-display-lg);
+  font-weight: 600;
+  line-height: var(--lh-display-lg);
+  letter-spacing: var(--ls-display-lg);
+}
+
+/* Título de sección */
+
+.headline-lg {
+  font-family: var(--font-display);
+  font-size: var(--fs-headline-lg);
+  font-weight: 600;
+  line-height: var(--lh-headline-lg);
+  letter-spacing: var(--ls-headline-lg);
+}
+
+/* Título de tarjeta destacado */
+
+.headline-md {
+  font-family: var(--font-display);
+  font-size: var(--fs-headline-md);
+  font-weight: 500;
+  line-height: var(--lh-headline-md);
+  letter-spacing: var(--ls-headline-md);
+}
+
+/* Título de elemento o subtítulo */
+
+.headline-sm {
+  font-family: var(--font-display);
+  font-size: var(--fs-headline-sm);
+  font-weight: 500;
+  line-height: var(--lh-headline-sm);
+}
+
+/* Párrafos */
+
+.body-lg {
+  font-size: var(--fs-body-lg);
+  line-height: var(--lh-body-lg);
+  color: var(--text-muted);
+}
+
+.body-md {
+  font-size: var(--fs-body-md);
+  line-height: var(--lh-body-md);
+  color: var(--text-muted);
+}
+
+.body-sm {
+  font-size: var(--fs-body-sm);
+  line-height: var(--lh-body-sm);
+  color: var(--text-muted);
+}
+
+/* Etiquetas y textos técnicos */
+
+.label-md {
+  font-family: var(--font-display);
+  font-size: var(--fs-label-md);
+  font-weight: 600;
+  line-height: 1.35;
+  letter-spacing: var(--ls-label-md);
+  text-transform: uppercase;
+}
+
+.label-sm {
+  font-family: var(--font-display);
+  font-size: var(--fs-label-sm);
+  font-weight: 600;
+  line-height: 1.4;
+  letter-spacing: var(--ls-label-sm);
+  text-transform: uppercase;
+}
+
+/* Colores tipográficos */
+
+.text-accent {
+  color: var(--text-heading-accent);
+}
+
+.text-muted {
+  color: var(--text-muted);
+}
+
+
+/* 4. CONTENEDORES
+   ========================================================== */
+
+.container {
+  width: 100%;
+  max-width: var(--container-max);
+
+  margin-inline: auto;
+  padding-inline: var(--page-margin);
+}
+
+/* Para textos largos, políticas y artículos */
+
+.container-reading {
+  width: 100%;
+  max-width: var(--container-reading);
+
+  margin-inline: auto;
+  padding-inline: var(--page-margin);
+}
+
+
+/* 5. GRILLA MOBILE-FIRST
+   ========================================================== */
+
+/*
+   Móvil:     4 columnas
+   Tablet:    8 columnas
+   Escritorio: 12 columnas
+
+   Las clases lg-span-* y md-span-* se aplican
+   únicamente dentro de .grid-layout.
+*/
+
+.grid-layout {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: var(--grid-gutter);
+  align-items: stretch;
+}
+
+/* Móvil: ancho completo por defecto */
+
+.grid-layout > * {
+  grid-column: span 4;
+  min-width: 0;
+}
+
+/* Tablet */
+
+@media (min-width: 768px) {
+  .grid-layout {
+    grid-template-columns: repeat(8, minmax(0, 1fr));
+  }
+
+  .grid-layout > * {
+    grid-column: span 8;
+  }
+
+  .grid-layout > .md-span-4 {
+    grid-column: span 4;
+  }
+
+  .grid-layout > .md-span-8 {
+    grid-column: span 8;
+  }
+}
+
+/* Escritorio */
+
+@media (min-width: 1200px) {
+  .grid-layout {
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+  }
+
+  .grid-layout > * {
+    grid-column: span 12;
+  }
+
+  .grid-layout > .lg-span-3 {
+    grid-column: span 3;
+  }
+
+  .grid-layout > .lg-span-4 {
+    grid-column: span 4;
+  }
+
+  .grid-layout > .lg-span-5 {
+    grid-column: span 5;
+  }
+
+  .grid-layout > .lg-span-6 {
+    grid-column: span 6;
+  }
+
+  .grid-layout > .lg-span-7 {
+    grid-column: span 7;
+  }
+
+  .grid-layout > .lg-span-8 {
+    grid-column: span 8;
+  }
+
+  .grid-layout > .lg-span-9 {
+    grid-column: span 9;
+  }
+
+  .grid-layout > .lg-span-12 {
+    grid-column: span 12;
+  }
+}
+
+
+/* 6. ESPACIADO DE SECCIONES
+   ========================================================== */
+
+.section-spacer {
+  padding-block: var(--space-2xl);
+  border-top: 1px solid var(--border-divider);
+}
+
+@media (min-width: 768px) {
+  .section-spacer {
+    padding-block: var(--space-3xl);
+  }
+}
+
+
+/* 7. UTILIDADES BÁSICAS
+   ========================================================== */
+
+.text-center {
+  text-align: center;
+}
+
+.text-left {
+  text-align: left;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
+}
+
+
+/* 8. MOVIMIENTO REDUCIDO
+   ========================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}

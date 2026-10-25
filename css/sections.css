@@ -1,0 +1,695 @@
+
+/* ==========================================================
+   GUILLERMO GONZÁLEZ | SECTIONS
+   Atelier — Calm Authority
+   Layout mobile-first y secciones del sitio
+   ========================================================== */
+
+
+/* 1. NAVEGACIÓN
+   ========================================================== */
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(248, 249, 245, 0.97);
+  border-bottom: 1px solid var(--border-divider);
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
+}
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  width: 100%;
+  padding-block: 0.75rem;
+}
+
+.brand-logo {
+  display: inline-flex;
+  align-items: center;
+  min-width: 0;
+  text-decoration: none;
+}
+
+.brand-logo > span {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+  min-width: 0;
+}
+
+.brand-logo .body-sm {
+  color: var(--text-muted);
+}
+
+.brand-icon {
+  display: none;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.25rem 0.875rem;
+  width: 100%;
+  font-size: var(--fs-body-sm);
+  font-weight: 500;
+}
+
+.nav-links a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  padding-block: 0.35rem;
+  color: var(--text-muted);
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+.nav-links a:hover,
+.nav-links a:focus-visible {
+  color: var(--link-hover);
+}
+
+.site-header .btn {
+  flex-shrink: 0;
+  min-height: 44px;
+  padding: 0.625rem 1rem;
+  font-size: var(--fs-body-sm);
+}
+
+@media (max-width: 767px) {
+  .brand-logo {
+    flex: 1;
+  }
+
+  .nav-links {
+    order: 3;
+    width: 100%;
+    padding-top: 0.25rem;
+    border-top: 1px solid var(--border-divider);
+  }
+
+  .site-header .btn {
+    order: 2;
+  }
+}
+
+@media (min-width: 768px) {
+  .header-inner {
+    column-gap: 1.25rem;
+  }
+
+  .nav-links {
+    width: auto;
+    margin-left: auto;
+    column-gap: 1rem;
+  }
+}
+
+@media (min-width: 1100px) {
+  .header-inner {
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+  }
+
+  .brand-logo {
+    flex: 0 0 auto;
+    margin-right: auto;
+  }
+
+  .nav-links {
+    flex: 0 1 auto;
+    margin-left: 0;
+    gap: 1.25rem;
+  }
+
+  .site-header .btn {
+    margin-left: 0.25rem;
+  }
+}
+
+
+/* 2. ANCLAS Y SECCIONES
+   ========================================================== */
+
+html {
+  --header-offset: 140px;
+  scroll-padding-top: var(--header-offset);
+}
+
+main section[id] {
+  scroll-margin-top: 0;
+}
+
+.hero-section,
+.section-spacer,
+.contact-section {
+  position: relative;
+  width: 100%;
+  min-width: 0;
+  min-height: auto;
+}
+
+@media (min-width: 768px) {
+  html {
+    --header-offset: 100px;
+  }
+}
+
+@media (min-width: 1100px) {
+  html {
+    --header-offset: 76px;
+  }
+}
+
+
+/* 3. PORTADA
+   ========================================================== */
+
+.hero-section {
+  padding-block: var(--space-xl) var(--space-2xl);
+  background: var(--bg-base);
+}
+
+.hero-section .grid-layout {
+  align-items: center;
+}
+
+.hero-section h1,
+.hero-section p {
+  max-width: 100%;
+}
+
+.hero-section .body-lg {
+  max-width: 650px;
+}
+
+.hero-mockup {
+  min-width: 0;
+  padding: var(--space-md);
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-level-2);
+}
+
+@media (min-width: 768px) {
+  .hero-mockup {
+    padding: var(--space-lg);
+  }
+}
+
+@media (min-width: 1200px) {
+  .hero-section .grid-layout {
+    column-gap: clamp(1.5rem, 3vw, 3rem);
+  }
+}
+
+
+/* 4. SERVICIOS
+   ========================================================== */
+
+#servicios {
+  background: var(--bg-base);
+}
+
+#servicios .grid-layout {
+  align-items: stretch;
+}
+
+#servicios .card {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  height: 100%;
+}
+
+#servicios .card > .badge {
+  align-self: flex-start;
+}
+
+#servicios .card > p {
+  margin-bottom: var(--space-md);
+}
+
+#servicios .card ul {
+  margin: 0 0 1.5rem;
+  padding-left: 1.2rem;
+}
+
+#servicios .card ul li + li {
+  margin-top: 0.35rem;
+}
+
+#servicios .card > .btn {
+  align-self: flex-start;
+  width: max-content;
+  max-width: 100%;
+  min-width: 0;
+  margin-top: auto;
+  padding: 0.75rem 1.5rem;
+  white-space: nowrap;
+  text-align: left;
+}
+
+
+/* 5. SOLUCIONES POSIBLES — IMÁGENES
+   ========================================================== */
+
+#sistemas {
+  background: var(--bg-base);
+}
+
+#sistemas .grid-layout {
+  align-items: stretch;
+}
+
+/* La tarjeta utiliza el espacio completo de su columna. */
+
+#sistemas .mockup-card {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  min-width: 0;
+  height: 100%;
+  padding: 1rem;
+}
+
+/* Título y descripción */
+
+#sistemas .solution-content {
+  min-width: 0;
+}
+
+#sistemas .solution-content .card-title {
+  margin: 0 0 0.5rem;
+}
+
+#sistemas .solution-content .body-md {
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+
+/* Marco visual de la imagen */
+
+#sistemas .solution-preview {
+  width: 100%;
+  min-width: 0;
+  margin: 0;
+  overflow: hidden;
+  background: var(--bg-subtle);
+  border: 1px solid var(--border-node);
+  border-radius: var(--radius-md);
+}
+
+/* Enlace para abrir la imagen completa */
+
+#sistemas .solution-preview-link {
+  display: block;
+  width: 100%;
+  cursor: zoom-in;
+  text-decoration: none;
+}
+
+#sistemas .solution-preview-link:focus-visible {
+  outline: 3px solid var(--focus-color);
+  outline-offset: -3px;
+}
+
+/* Imagen completa, sin cortes ni distorsiones */
+
+#sistemas .solution-preview-image {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  background: var(--bg-surface);
+  transition: transform var(--transition-normal);
+}
+
+@media (hover: hover) {
+  #sistemas .solution-preview-link:hover .solution-preview-image {
+    transform: scale(1.025);
+  }
+}
+
+/* Explicación inferior */
+
+#sistemas .solution-caption {
+  margin-top: auto;
+  padding-top: 0.25rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+
+/* Tablet: dos tarjetas por fila; tercera ocupa toda la fila. */
+
+@media (min-width: 768px) and (max-width: 1199px) {
+  #sistemas .mockup-card {
+    grid-column: span 4;
+    padding: 1.25rem;
+  }
+
+  #sistemas .mockup-card:last-child {
+    grid-column: span 8;
+  }
+}
+
+/* Escritorio: tres tarjetas por fila. */
+
+@media (min-width: 1200px) {
+  #sistemas .mockup-card {
+    grid-column: span 4;
+    padding: 1rem;
+  }
+
+  #sistemas .solution-content {
+    min-height: 125px;
+  }
+
+  #sistemas .solution-preview {
+    margin-top: 0;
+  }
+}
+
+/* Escritorio ancho: dar algo más de espacio interior. */
+
+@media (min-width: 1440px) {
+  #sistemas .mockup-card {
+    padding: 1.2rem;
+  }
+}
+
+
+/* 6. PORTAFOLIO
+   ========================================================== */
+
+#proyectos {
+  background: var(--bg-base);
+}
+
+#proyectos .grid-layout {
+  align-items: stretch;
+}
+
+#proyectos .card {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  height: 100%;
+}
+
+#proyectos .card > .badge {
+  align-self: flex-start;
+}
+
+#proyectos .project-summary {
+  margin-bottom: 0.25rem;
+}
+
+#proyectos .project-tech {
+  margin-top: auto;
+  padding-top: 1rem;
+}
+
+#proyectos .card > .btn {
+  align-self: flex-start;
+  margin-top: 1.25rem;
+}
+
+@media (min-width: 768px) and (max-width: 1199px) {
+  #proyectos .card {
+    grid-column: span 4;
+  }
+
+  #proyectos .card:last-child {
+    grid-column: span 8;
+  }
+}
+
+
+/* 7. SOBRE MÍ
+   ========================================================== */
+
+#sobre-mi {
+  background: var(--bg-base);
+}
+
+#sobre-mi .card {
+  height: 100%;
+}
+
+#sobre-mi .body-md,
+#sobre-mi .body-lg {
+  max-width: 72ch;
+}
+
+#sobre-mi .profile-actions {
+  margin-top: 1.5rem;
+}
+
+
+/* 8. PROCESO
+   ========================================================== */
+
+#proceso {
+  background: var(--bg-base);
+}
+
+.process-step {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-md);
+  padding-block: var(--space-lg);
+  border-bottom: 1px solid var(--border-divider);
+}
+
+.process-step:first-child {
+  padding-top: 0;
+}
+
+.process-step:last-child {
+  padding-bottom: 0;
+  border-bottom: none;
+}
+
+.process-step > * {
+  min-width: 0;
+}
+
+.process-step > .label-md {
+  flex: 0 0 auto;
+  min-width: 2rem;
+  color: var(--text-heading-accent);
+}
+
+.process-step h3 {
+  margin-bottom: 0.4rem;
+}
+
+@media (min-width: 768px) {
+  .process-step {
+    gap: var(--space-lg);
+  }
+}
+
+@media (min-width: 1200px) {
+  #proceso .grid-layout {
+    column-gap: clamp(1.5rem, 3vw, 3rem);
+  }
+}
+
+
+/* 9. CONTACTO
+   ========================================================== */
+
+.contact-section {
+  padding-block: var(--space-2xl);
+  color: var(--text-main);
+  background: var(--bg-contact);
+  border-top: 1px solid var(--border-divider);
+}
+
+.contact-section .grid-layout {
+  align-items: start;
+}
+
+.contact-section h2,
+.contact-section h3 {
+  color: var(--text-main);
+}
+
+.contact-section p {
+  color: var(--text-muted);
+}
+
+.contact-section .label-md {
+  color: var(--text-heading-accent);
+}
+
+.contact-section a:not(.btn) {
+  color: var(--link-color);
+  overflow-wrap: anywhere;
+}
+
+.contact-section a:not(.btn):hover {
+  color: var(--link-hover);
+}
+
+.contact-section form.card {
+  min-width: 0;
+  padding: clamp(1.25rem, 3vw, 2rem);
+  background: var(--bg-contact-card);
+  border: 1px solid var(--border-card);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-level-2);
+}
+
+.contact-section .form-label {
+  color: var(--text-main);
+}
+
+.contact-section .form-input,
+.contact-section .form-select,
+.contact-section .form-textarea {
+  background: var(--bg-surface);
+  color: var(--text-main);
+  border-color: var(--border-input);
+}
+
+.contact-section .form-privacy {
+  color: var(--text-muted);
+}
+
+.contact-section .form-privacy a {
+  color: var(--link-color);
+  text-decoration: underline;
+}
+
+.contact-section .form-status--success {
+  color: var(--state-success);
+}
+
+.contact-section .form-status--error {
+  color: var(--state-error);
+}
+
+.contact-section .btn-primary {
+  background: var(--action-primary);
+  color: var(--action-primary-text);
+}
+
+.contact-section .btn-primary:hover:not(:disabled) {
+  background: var(--action-primary-hover);
+}
+
+.contact-section .btn-secondary {
+  background: var(--bg-surface);
+  color: var(--link-color);
+}
+
+
+/* 10. FOOTER
+   ========================================================== */
+
+.site-footer {
+  padding-block: var(--space-lg);
+  color: var(--text-main);
+  background: var(--bg-base);
+  border-top: 1px solid var(--border-divider);
+}
+
+.site-footer a {
+  color: var(--link-color);
+}
+
+.site-footer a:hover {
+  color: var(--link-hover);
+}
+
+
+/* 11. ALTURA DE SECCIONES EN ESCRITORIO
+   ========================================================== */
+
+/* En móvil las secciones crecen de forma natural. */
+
+.hero-section,
+.section-spacer,
+.contact-section {
+  min-height: auto;
+}
+
+/* En escritorio, altura mínima sin recortar contenido. */
+
+@media (min-width: 1100px) {
+  .hero-section,
+  .section-spacer,
+  .contact-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: calc(100svh - var(--header-offset));
+    padding-block: clamp(2.5rem, 5vh, 4rem);
+  }
+
+  #servicios,
+  #sistemas,
+  #proyectos,
+  #proceso,
+  #contacto {
+    justify-content: flex-start;
+  }
+}
+
+@media (min-width: 1100px) and (max-height: 750px) {
+  .hero-section,
+  .section-spacer,
+  .contact-section {
+    justify-content: flex-start;
+  }
+}
+
+
+/* 12. AJUSTES RESPONSIVE
+   ========================================================== */
+
+@media (max-width: 767px) {
+  .contact-section form.card {
+    margin-top: var(--space-md);
+  }
+
+  .contact-section .btn-block {
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  #sistemas .mockup-card {
+    padding: 1rem;
+  }
+
+  #sistemas .solution-content .card-title {
+    margin-bottom: 0.5rem;
+  }
+
+  #proyectos .card > .btn {
+    width: 100%;
+  }
+}
+
+
+/* 13. ACCESIBILIDAD
+   ========================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  .nav-links a,
+  #sistemas .solution-preview-image {
+    transition: none;
+  }
+}
